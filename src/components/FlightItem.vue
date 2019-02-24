@@ -1,9 +1,16 @@
 <template>
-    <li class="flight">
-      <span class="flight__block">{{ formatNumber(flight.time.hours) }}:{{ formatNumber(flight.time.minutes) }}</span>
-      <span class="flight__block">{{ flight.destination.name }} ({{ flight.destination.code }})</span>
-      <span class="flight__block">{{ flight.flight }}</span>
-    </li>
+    <tr class="flight">
+      <td class="flight__cell">
+        {{ formatNumber(flight.time.hours) }}:{{ formatNumber(flight.time.minutes) }}
+      </td>
+      <td class="flight__cell">
+        {{ flight.destination.name }}
+        <span class="flight__code">({{ flight.destination.code }})</span>
+      </td>
+      <td class="flight__cell">
+        {{ flight.flight }}
+      </td>
+    </tr>
 </template>
 
 <script>
@@ -22,14 +29,23 @@ export default {
 
 <style scoped>
   .flight {
-    display: flex;
+    border-bottom: 1px solid #00a3ee;
   }
 
-  .flight__block {
-    margin-right: 10px;
+  .flight:hover {
+    background-color: rgba(238, 75, 0, 0.1);
   }
 
-  .flight__block:last-of-type {
-    margin-right: 0;
+  .flight__cell {
+    padding: 10px;
+    padding-right: 20px;
+  }
+
+  .flight__cell:last-of-type {
+    padding-right: 10px;
+  }
+
+  .flight__code {
+    opacity: 0.4;
   }
 </style>
