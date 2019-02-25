@@ -54,27 +54,25 @@ const statuses = [
   'отменён',
   'посадка',
   '',
-]
+];
 const data = [];
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-const sortByTime = (data) => {
-  return data.sort((a, b) => {
-    const aHours = a.time.hours;
-    const aMinutes = a.time.minutes;
-    const bHours = b.time.hours;
-    const bMinutes = b.time.minutes;
+const sortByTime = flightData => flightData.sort((a, b) => {
+  const aHours = a.time.hours;
+  const aMinutes = a.time.minutes;
+  const bHours = b.time.hours;
+  const bMinutes = b.time.minutes;
 
-    if (aHours < bHours) {
-      return -1;
-    }
-    if (aHours > bHours) {
-      return 1;
-    }
-    return aMinutes - bMinutes;
-  });
-}
+  if (aHours < bHours) {
+    return -1;
+  }
+  if (aHours > bHours) {
+    return 1;
+  }
+  return aMinutes - bMinutes;
+});
 
 const getNewData = (length = 30) => {
   for (let i = 0; i < length; i += 1) {

@@ -50,9 +50,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'Controls'
-  }
+export default {
+  name: 'Controls',
+};
 </script>
 
 <style scoped>

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { formatNumber } from '../js/format';
+import formatNumber from '../js/formatNumber';
 
 export default {
   name: 'TimetableItem',

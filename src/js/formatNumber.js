@@ -1,4 +1,4 @@
-export const formatNumber = (n) => {
+export default (n) => {
   if (n > 9) {
     return n.toString();
   }
