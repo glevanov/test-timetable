@@ -42,7 +42,7 @@ export default {
   }
 
   .flight:hover {
-    background-color: rgba(238, 75, 0, 0.1);
+    background-color: #ffe0b1;
   }
 
   .flight__cell {
