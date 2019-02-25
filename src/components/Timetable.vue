@@ -6,7 +6,7 @@
       <th class="timetable__heading timetable__heading--flight">Рейс</th>
     </tr>
     <FlightItem
-      v-for="flight in this.$store.state.flightsData"
+      v-for="flight in this.$store.state.departures"
       :flight="flight"
     ></FlightItem>
   </table>
