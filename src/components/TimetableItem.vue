@@ -5,10 +5,15 @@
       </td>
       <td class="flight__cell flight__cell--destination">
         {{ flight.destination.name }}
-        <span class="flight__code">({{ flight.destination.code }})</span>
+        <span class="flight__code">
+          ({{ flight.destination.code }})
+        </span>
       </td>
       <td class="flight__cell">
         {{ flight.flight }}
+      </td>
+      <td class="flight__cell">
+        {{ flight.status }}
       </td>
     </tr>
 </template>
@@ -17,7 +22,7 @@
 import { formatNumber } from '../js/format';
 
 export default {
-  name: 'FlightItem',
+  name: 'TimetableItem',
   props: {
     flight: Object,
   },

@@ -7,11 +7,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    flightsData: null,
+    departures: null,
+    arrivals: null,
+    currentMode: 'departures',
+    entriesPerPage: 30,
   },
   mutations: {
     getNewData(state) {
-      state.flightsData = getNewData(50);
+      state.departures = getNewData(200);
+      state.arrivals = getNewData(200);
     },
   },
   actions: {

@@ -1,17 +1,22 @@
 <template>
   <div id="app">
     <h1 class="heading">Табло аэропорта</h1>
-    <Timetable></Timetable>
+    <div class="wrap">
+      <Timetable></Timetable>
+      <TimetableControls></TimetableControls>
+    </div>
   </div>
 </template>
 
 <script>
 import Timetable from './components/Timetable.vue';
+import TimetableControls from './components/TimetableControls.vue';
 
 export default {
   name: 'app',
   components: {
     Timetable,
+    TimetableControls,
   },
   beforeMount() {
     this.$store.dispatch('getNewData');
@@ -20,23 +25,7 @@ export default {
 </script>
 
 <style>
-  @font-face {
-    font-family: 'Ubuntu Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
-    url('assets/fonts/ubuntu-mono-v8-latin_cyrillic-regular.woff2') format('woff2'),
-    url('assets/fonts/ubuntu-mono-v8-latin_cyrillic-regular.woff') format('woff');
-  }
-
-  @font-face {
-    font-family: 'Ubuntu Mono';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Ubuntu Mono Bold'), local('UbuntuMono-Bold'),
-    url('assets/fonts/ubuntu-mono-v8-latin_cyrillic-700.woff2') format('woff2'),
-    url('assets/fonts/ubuntu-mono-v8-latin_cyrillic-700.woff') format('woff');
-  }
+  @import "assets/css/fonts.css";
 
   #app {
     font-family: 'Ubuntu Mono', monospace;
@@ -44,5 +33,11 @@ export default {
 
   .heading {
     font-size: 50px;
+  }
+
+  .wrap {
+    display: flex;
+    flex-direction: row;
+    column-gap: 55px;
   }
 </style>

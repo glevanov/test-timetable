@@ -48,6 +48,13 @@ const codes = [
   'UZ',
   'BY',
 ];
+const statuses = [
+  'регистрация',
+  'задержан',
+  'отменён',
+  'посадка',
+  '',
+]
 const data = [];
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
@@ -78,6 +85,7 @@ const getNewData = (length = 30) => {
         minutes: getRandomInt(0, 60),
         hours: getRandomInt(0, 24),
       },
+      status: statuses[getRandomInt(0, statuses.length)],
     };
     data.push(entry);
   }

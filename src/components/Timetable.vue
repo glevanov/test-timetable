@@ -4,21 +4,22 @@
       <th class="timetable__heading timetable__heading--time">Время</th>
       <th class="timetable__heading timetable__heading--destination">Направление</th>
       <th class="timetable__heading timetable__heading--flight">Рейс</th>
+      <th class="timetable__heading timetable__heading--status">Статус</th>
     </tr>
-    <FlightItem
+    <TimetableItem
       v-for="flight in this.$store.state.departures"
       :flight="flight"
-    ></FlightItem>
+    ></TimetableItem>
   </table>
 </template>
 
 <script>
-import FlightItem from './FlightItem.vue';
+import TimetableItem from './TimetableItem.vue';
 
 export default {
   name: 'Timetable',
   components: {
-    FlightItem,
+    TimetableItem,
   },
 };
 </script>
@@ -30,7 +31,7 @@ export default {
     table-layout: fixed;
     width: 700px;
 
-    font-size: 28px;
+    font-size: 22px;
 
     list-style: none;
     border-collapse: collapse;
@@ -45,10 +46,14 @@ export default {
   }
 
   .timetable__heading--time {
-    width: 80px;
+    width: 65px;
   }
 
   .timetable__heading--flight {
-    width: 100px;
+    width: 90px;
+  }
+
+  .timetable__heading--status {
+    width: 120px;
   }
 </style>
