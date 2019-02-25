@@ -31,6 +31,9 @@ export default {
   @import "assets/css/fonts.css";
 
   #app {
+    margin: 0 auto;
+    width: 980px;
+
     font-family: 'Ubuntu Mono', monospace;
   }
 
@@ -45,6 +48,6 @@ export default {
   .wrap {
     display: flex;
     flex-direction: row;
-    column-gap: 55px;
+    justify-content: space-between;
   }
 </style>

@@ -66,6 +66,9 @@ export default {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+    padding: 20px;
+
+    border: 1px solid #00a3ee;
   }
 
   .controls__fieldset {
@@ -79,6 +82,7 @@ export default {
   }
 
   .controls__legend {
+    padding: 0;
     margin-bottom: 5px;
 
     font-weight: 700;
@@ -90,7 +94,6 @@ export default {
     column-gap: 10px;
 
     cursor: pointer;
-
   }
 
   .radio__box {

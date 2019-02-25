@@ -47,7 +47,9 @@
   }
 
   .search__label {
-    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
 
     font-weight: 700;
   }
