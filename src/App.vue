@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1 class="heading">Табло аэропорта</h1>
+    <TimetableSearch></TimetableSearch>
     <div class="wrap">
       <Timetable></Timetable>
       <TimetableControls></TimetableControls>
@@ -11,12 +12,14 @@
 <script>
 import Timetable from './components/Timetable.vue';
 import TimetableControls from './components/TimetableControls.vue';
+import TimetableSearch from './components/TimetableSearch.vue';
 
 export default {
   name: 'app',
   components: {
     Timetable,
     TimetableControls,
+    TimetableSearch,
   },
   beforeMount() {
     this.$store.dispatch('getNewData');
@@ -32,6 +35,10 @@ export default {
   }
 
   .heading {
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
     font-size: 50px;
   }
 
