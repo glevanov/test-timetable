@@ -9,8 +9,11 @@ export default new Vuex.Store({
   state: {
     departures: null,
     arrivals: null,
-    currentMode: 'departures',
-    entriesPerPage: 30,
+    flightsDisplay: {
+      mode: 'departures',
+      entriesPerPage: 30,
+      showDelayed: false,
+    },
   },
   mutations: {
     getNewData(state) {
@@ -21,6 +24,25 @@ export default new Vuex.Store({
   actions: {
     getNewData(context) {
       context.commit('getNewData');
+    },
+  },
+  getters: {
+    getFlights: state => {
+      const acc = [];
+      switch (state.flightsDisplay.mode) {
+        case 'departures':
+          // Get departures
+          break;
+        case 'arrivals':
+          // Get arrivals
+          break;
+        default:
+          throw 'Неверное значение state.flightsDisplay.mode';
+      }
+      if (state.flightsDisplay.showDelayed) {
+        // Filter by delayed
+      }
+      // Обрезать под entriesPerPage
     },
   },
 });
