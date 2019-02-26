@@ -67,24 +67,23 @@
 </template>
 
 <script>
+import {
+  mapActions,
+  mapMutations,
+} from 'vuex';
+
 export default {
   name: 'Controls',
   methods: {
-    showDelayed() {
-      this.$store.commit('showDelayed');
-    },
-    hideDelayed() {
-      this.$store.commit('hideDelayed');
-    },
-    showDepartures() {
-      this.$store.commit('showDepartures');
-    },
-    showArrivals() {
-      this.$store.commit('showArrivals');
-    },
-    getNewData() {
-      this.$store.dispatch('getNewData');
-    },
+    ...mapMutations([
+      'showDelayed',
+      'hideDelayed',
+      'showDepartures',
+      'showArrivals',
+    ]),
+    ...mapActions([
+      'getNewData',
+    ]),
   },
 };
 </script>
