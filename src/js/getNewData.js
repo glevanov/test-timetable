@@ -55,7 +55,6 @@ const statuses = [
   'посадка',
   '',
 ];
-const data = [];
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -75,6 +74,7 @@ const sortByTime = flightData => flightData.sort((a, b) => {
 });
 
 const getNewData = (length = 30) => {
+  const data = [];
   for (let i = 0; i < length; i += 1) {
     const entry = {
       destination: airports[getRandomInt(0, airports.length)],

@@ -11,7 +11,7 @@ export default new Vuex.Store({
     arrivals: null,
     flightsDisplay: {
       mode: 'departures',
-      entriesPerPage: 30,
+      entriesPerPage: 15,
       showDelayed: false,
     },
   },
@@ -19,6 +19,18 @@ export default new Vuex.Store({
     getNewData(state) {
       state.departures = getNewData(200);
       state.arrivals = getNewData(200);
+    },
+    showDelayed(state) {
+      state.flightsDisplay.showDelayed = true;
+    },
+    hideDelayed(state) {
+      state.flightsDisplay.showDelayed = false;
+    },
+    showDepartures(state) {
+      state.flightsDisplay.mode = 'departures';
+    },
+    showArrivals(state) {
+      state.flightsDisplay.mode = 'arrivals';
     },
   },
   actions: {
@@ -37,7 +49,7 @@ export default new Vuex.Store({
           acc = state.arrivals.slice();
           break;
         default:
-          throw 'Неверное значение state.flightsDisplay.mode';
+          throw new Error('Неверное значение state.flightsDisplay.mode');
       }
       if (state.flightsDisplay.showDelayed) {
         const delayedStatus = 'задержан';

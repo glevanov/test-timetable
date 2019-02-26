@@ -3,7 +3,10 @@
     <form class="controls__form">
       <fieldset class="controls__fieldset">
         <legend class="controls__legend">Направление</legend>
-        <label class="radio">
+        <label
+          class="radio"
+          @click="showDepartures"
+        >
           <input
             class="radio__input visually-hidden"
             type="radio"
@@ -13,7 +16,10 @@
           <span class="radio__box"></span>
           Вылет
         </label>
-        <label class="radio">
+        <label
+          class="radio"
+          @click="showArrivals"
+        >
           <input
             class="radio__input visually-hidden"
             type="radio"
@@ -25,7 +31,10 @@
       </fieldset>
       <fieldset class="controls__fieldset">
         <legend class="controls__legend">Только задержанные</legend>
-        <label class="radio">
+        <label
+          class="radio"
+          @click="showDelayed"
+        >
           <input
             class="radio__input visually-hidden"
             type="radio"
@@ -34,7 +43,10 @@
           <span class="radio__box"></span>
           Да
         </label>
-        <label class="radio">
+        <label
+          class="radio"
+          @click="hideDelayed"
+        >
           <input
             class="radio__input visually-hidden"
             type="radio"
@@ -52,6 +64,20 @@
 <script>
 export default {
   name: 'Controls',
+  methods: {
+    showDelayed() {
+      this.$store.commit('showDelayed');
+    },
+    hideDelayed() {
+      this.$store.commit('hideDelayed');
+    },
+    showDepartures() {
+      this.$store.commit('showDepartures');
+    },
+    showArrivals() {
+      this.$store.commit('showArrivals');
+    },
+  },
 };
 </script>
 
