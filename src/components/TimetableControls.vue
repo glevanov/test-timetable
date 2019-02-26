@@ -139,10 +139,13 @@ export default {
   .controls__button:focus,
   .controls__button:hover {
     color: #ffffff;
-    border-color: #ffffff;;
     background-color: #00a3ee;
 
     transition: all 0.4s;
+  }
+
+  .controls__button:active {
+    background-color: rgba(0, 163, 238, 0.3);
   }
 
   .radio {
