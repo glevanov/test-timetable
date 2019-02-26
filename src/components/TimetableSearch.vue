@@ -44,6 +44,7 @@ export default {
   .search__input:focus,
   .search__input:active {
     border-color: #00a3ee;
+    box-shadow: 0 0 12px rgba(0, 163, 238, 0.4);
   }
 
   .search__label {
