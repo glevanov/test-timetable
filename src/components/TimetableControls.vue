@@ -57,6 +57,11 @@
           Нет
         </label>
       </fieldset>
+      <button
+        class="controls__button"
+        type="button"
+        @click="getNewData"
+      >Новые данные</button>
     </form>
   </aside>
 </template>
@@ -77,6 +82,9 @@ export default {
     showArrivals() {
       this.$store.commit('showArrivals');
     },
+    getNewData() {
+      this.$store.dispatch('getNewData');
+    },
   },
 };
 </script>
@@ -91,6 +99,7 @@ export default {
   .controls__form {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     row-gap: 20px;
     padding: 20px;
 
@@ -112,6 +121,28 @@ export default {
     margin-bottom: 5px;
 
     font-weight: 700;
+  }
+
+  .controls__button {
+    display: block;
+    padding: 5px 10px ;
+
+    font: inherit;
+
+    color: inherit;
+    background-color: #ffffff;
+    border: 1px solid #00a3ee;
+
+    transition: all 0.4s;
+  }
+
+  .controls__button:focus,
+  .controls__button:hover {
+    color: #ffffff;
+    border-color: #ffffff;;
+    background-color: #00a3ee;
+
+    transition: all 0.4s;
   }
 
   .radio {
