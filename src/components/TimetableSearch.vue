@@ -1,5 +1,8 @@
 <template>
-  <form class="search">
+  <form
+    class="search"
+    v-on:submit.prevent
+  >
     <label
       class="search__label"
       for="timetable-search"
@@ -7,13 +10,31 @@
     <input
       class="search__input"
       type="search"
-      id="timetable-search">
+      id="timetable-search"
+      v-model="userInput"
+      @input="update"
+    >
   </form>
 </template>
 
 <script>
 export default {
   name: 'TimetableSearch',
+  methods: {
+    update() {
+      console.log(this.query);
+    },
+  },
+  computed: {
+    query() {
+      return this.userInput.trim();
+    },
+  },
+  data() {
+    return {
+      userInput: '',
+    };
+  },
 };
 </script>
 
