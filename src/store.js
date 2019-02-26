@@ -27,22 +27,23 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    getFlights: state => {
-      const acc = [];
+    getFilteredFlights: (state) => {
+      let acc = [];
       switch (state.flightsDisplay.mode) {
         case 'departures':
-          // Get departures
+          acc = state.departures.slice();
           break;
         case 'arrivals':
-          // Get arrivals
+          acc = state.arrivals.slice();
           break;
         default:
           throw 'Неверное значение state.flightsDisplay.mode';
       }
       if (state.flightsDisplay.showDelayed) {
-        // Filter by delayed
+        const delayedStatus = 'задержан';
+        acc = acc.filter(it => it.status === delayedStatus);
       }
-      // Обрезать под entriesPerPage
+      return acc.slice(0, state.flightsDisplay.entriesPerPage);
     },
   },
 });

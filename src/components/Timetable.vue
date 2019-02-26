@@ -7,7 +7,7 @@
       <th class="timetable__heading timetable__heading--status">Статус</th>
     </tr>
     <TimetableItem
-      v-for="flight in this.$store.state.departures"
+      v-for="flight in flights"
       :flight="flight"
     ></TimetableItem>
   </table>
@@ -20,6 +20,11 @@ export default {
   name: 'Timetable',
   components: {
     TimetableItem,
+  },
+  computed: {
+    flights() {
+      return this.$store.getters.getFilteredFlights;
+    },
   },
 };
 </script>

@@ -12,9 +12,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'TimetableSearch'
-  }
+export default {
+  name: 'TimetableSearch',
+};
 </script>
 
 <style scoped>
