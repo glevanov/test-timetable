@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import getNewData from './js/getNewData';
+import fuzzySearch from './js/fuzzySearch';
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
       entriesPerPage: 15,
       showDelayed: false,
     },
+    searchQuery: null,
   },
   mutations: {
     getNewData(state) {
@@ -31,6 +33,9 @@ export default new Vuex.Store({
     },
     showArrivals(state) {
       state.flightsDisplay.mode = 'arrivals';
+    },
+    updateSearchQuery(state, payload) {
+      state.searchQuery = payload;
     },
   },
   actions: {
@@ -54,6 +59,9 @@ export default new Vuex.Store({
       if (state.flightsDisplay.showDelayed) {
         const delayedStatus = 'задержан';
         acc = acc.filter(it => it.status === delayedStatus);
+      }
+      if (state.searchQuery !== null && state.searchQuery !== '') {
+        acc = fuzzySearch(acc, state.searchQuery);
       }
       return acc.slice(0, state.flightsDisplay.entriesPerPage);
     },

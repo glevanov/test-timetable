@@ -22,12 +22,7 @@ export default {
   name: 'TimetableSearch',
   methods: {
     update() {
-      console.log(this.query);
-    },
-  },
-  computed: {
-    query() {
-      return this.userInput.trim();
+      this.$store.commit('updateSearchQuery', this.userInput.trim());
     },
   },
   data() {

@@ -31,7 +31,8 @@ export default {
   @import "assets/css/fonts.css";
 
   #app {
-    margin: 0 auto;
+    margin-left: 40px;
+    margin-right: 40px;
     width: 980px;
 
     font-family: 'Ubuntu Mono', monospace;

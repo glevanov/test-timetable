@@ -10,6 +10,13 @@
       v-for="flight in flights"
       :flight="flight"
     ></TimetableItem>
+    <tr v-if="flights.length === 0">
+      <td colspan="4"
+          class="timetable__error"
+      >
+        Такой рейс не найден. Пожалуйста, уточните запрос.
+      </td>
+    </tr>
   </table>
 </template>
 
@@ -61,5 +68,13 @@ export default {
 
   .timetable__heading--status {
     width: 120px;
+  }
+
+  .timetable__error {
+    padding: 10px;
+
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.4);
   }
 </style>
