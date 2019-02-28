@@ -6,7 +6,7 @@
     <label
       class="search__label"
       for="timetable-search"
-    >Поиск</label>
+    >Поиск рейса</label>
     <input
       class="search__input"
       type="search"
@@ -55,12 +55,16 @@ export default {
     background-repeat: no-repeat;
     background-position: left 8px center;
     background-size: 20px;
+
+    transition: all 0.4s;
   }
 
   .search__input:focus,
   .search__input:active {
     border-color: #00a3ee;
     box-shadow: 0 0 12px rgba(0, 163, 238, 0.4);
+
+    transition: all 0.4s;
   }
 
   .search__label {
