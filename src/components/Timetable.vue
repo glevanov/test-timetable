@@ -7,8 +7,9 @@
       <th class="timetable__heading timetable__heading--status">Статус</th>
     </tr>
     <TimetableItem
-      v-for="flight in flights"
+      v-for="(flight, index) in flights"
       :flight="flight"
+      :key="index"
     ></TimetableItem>
     <tr v-if="flights.length === 0">
       <td colspan="4"
